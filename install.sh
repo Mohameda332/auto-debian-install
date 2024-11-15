@@ -20,7 +20,7 @@ echo "Installing Termux-X11 APK"
 echo ""
 read -n 1 -s -r -p "Press any key to continue..."
 wget https://github.com/termux/termux-x11/releases/download/nightly/app-universal-debug.apk
-mv app-arm64-v8a-debug.apk $HOME/storage/downloads/
+mv app-universal-debug.apk $HOME/storage/downloads/
 termux-open $HOME/storage/downloads/app-universal-debug.apk
 
 # Install Debian With proot-distro
