@@ -46,3 +46,4 @@ nano bash.bashrc
 #add the command 'alias start=./startxfce4_debian.sh in the line after' 'fi'
 cd
 echo "Start XFCE4 with the start command"
+rm install.sh
