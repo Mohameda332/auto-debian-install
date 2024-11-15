@@ -1,3 +1,7 @@
+clear
+echo ""
+read -r -p "Please enter username for proot installation: " username </dev/tty
+
 # Update and install packages
 pkg update -y
 pkg upgrade -y
@@ -29,11 +33,11 @@ pd login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo -y
 pd login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo nano adduser -y
 
 # Add User and install XFCE4
-pd login debian --shared-tmp -- env DISPLAY=:1.0 adduser username
+pd login debian --shared-tmp -- env DISPLAY=:1.0 adduser "$username"
 pd login debian --shared-tmp -- env DISPLAY=:1.0 nano /etc/sudoers
-pd login debian --user speedlight -- env DISPLAY=:1.0 whoami
-pd login debian --user speedlight -- env DISPLAY=:1.0 sudo whoami 
-pd login debian --user speedlight -- env DISPLAY=:1.0 sudo apt install xfce4 -y
+pd login debian --user "$username" -- env DISPLAY=:1.0 whoami
+pd login debian --user "$username" -- env DISPLAY=:1.0 sudo whoami 
+pd login debian --user "$username" -- env DISPLAY=:1.0 sudo apt install xfce4 -y
 
 # Install script for execute XFCE4 and customise it
 wget https://raw.githubusercontent.com/LinuxDroidMaster/Termux-Desktops/main/scripts/proot_debian/startxfce4_debian.sh
@@ -46,6 +50,6 @@ cd usr
 cd etc
 nano bash.bashrc
 #add the command 'alias start=./startxfce4_debian.sh in the line after' 'fi'
-cd
+cd &&c lear
 echo "Start XFCE4 with the start command"
 rm install.sh
