@@ -41,7 +41,9 @@ nano startxfce4_debian.sh
 #Change the user droidmaster with your username
 #exit with ctrl+x and y
 chmod +x startxfce4_debian.sh
-cd ..usr/etc
+cd ..
+cd usr
+cd etc
 nano bash.bashrc
 #add the command 'alias start=./startxfce4_debian.sh in the line after' 'fi'
 cd
