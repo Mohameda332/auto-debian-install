@@ -51,7 +51,8 @@ cd etc
 nano bash.bashrc
 #add the command 'alias start=./startxfce4_debian.sh in the line after' 'fi'
 cd && clear
-#Insall Pi-Apps
+#Insall Pi-Apps & Firefox
 wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
+sudo apt install firefox-esr
 echo "Restart Termux And Start XFCE4 with the start command"
 rm install.sh
