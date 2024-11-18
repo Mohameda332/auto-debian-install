@@ -1,3 +1,4 @@
+#!/bin/bash
 clear
 echo ""
 read -r -p "Please enter username for proot installation: " username </dev/tty
@@ -34,7 +35,8 @@ pd login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo nano adduser -
 
 # Add User and install XFCE4
 pd login debian --shared-tmp -- env DISPLAY=:1.0 adduser "$username"
-pd login debian --shared-tmp -- env DISPLAY=:1.0 nano /etc/sudoers
+chmod u+rw $PREFIX/var/lib/proot-distro/installed-rootfs/debian/etc/sudoers
+echo "$username ALL=(ALL:ALL) ALL" | tee -a $PREFIX/var/lib/proot-distro/installed-rootfs/debian/etc/sudoers > /dev/null
 pd login debian --user "$username" -- env DISPLAY=:1.0 whoami
 pd login debian --user "$username" -- env DISPLAY=:1.0 sudo whoami 
 pd login debian --user "$username" -- env DISPLAY=:1.0 sudo apt install xfce4 -y
