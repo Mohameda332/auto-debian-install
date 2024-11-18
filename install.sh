@@ -44,17 +44,14 @@ pd login debian --user "$username" -- env DISPLAY=:1.0 sudo apt install xfce4 -y
 # Install script for execute XFCE4 and customise it
 wget https://raw.githubusercontent.com/Mohameda332/auto-debian-install/refs/heads/main/startxfce4_debian.sh
 chmod u+rw $PREFIX/data/data/com.termux/files/usr/bin/bash
-echo "proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - "$username" -c "env DISPLAY=:0 startxfce4"' | tee -a $PREFIX/data/data/com.termux/files/usr/bin/bash > /dev/null
-echo "exit 0" | tee -a $PREFIX/data/data/com.termux/files/usr/bin/bash > /dev/null
+echo "proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - "$username" -c "env DISPLAY=:0 startxfce4"' | tee -a $PREFIX/data/data/com.termux/files/usr/bin/bash/startxfce4_debian.sh > /dev/null
+echo "exit 0" | tee -a $PREFIX/data/data/com.termux/files/usr/bin/bash/startxfce4_debian.sh > /dev/null
 chmod +x startxfce4_debian.sh
-cd ..
-cd usr
-cd etc
-nano bash.bashrc
-#add the command 'alias start=./startxfce4_debian.sh in the line after' 'fi'
-cd && clear
+chmod u+rw $PREFIX/usr/etc/bash.bashrc
+echo "alias start=./startxfce4_debian.sh" | tee -a $PREFIX/usr/etc/bash.bashrc > /dev/null
 #Insall Pi-Apps & Firefox
 wget -qO- https://raw.githubusercontent.com/Botspot/pi-apps/master/install | bash
 sudo apt install firefox-esr
-echo "Restart Termux And Start XFCE4 with the start command"
-rm install.sh
+echo "Restart Termux And Start XFCE4 with start command"
+rm install.sh 
+exit
