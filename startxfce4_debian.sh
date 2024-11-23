@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 clear
 echo ""
-read -r -p "Please enter username for proot installation: " username </dev/tty
+read -r -p "Enter your linux username for start desktop: " username </dev/tty
 
 # Kill open X11 processes
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
