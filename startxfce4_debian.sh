@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
+clear
+echo ""
+read -r -p "Please enter username for proot installation: " username </dev/tty
 
 # Kill open X11 processes
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
@@ -22,6 +25,6 @@ sleep 1
 # See also: https://github.com/termux/proot-distro
 # Argument -- acts as terminator of proot-distro login options processing.
 # All arguments behind it would not be treated as options of PRoot Distro.
-proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - droidmaster -c "env DISPLAY=:0 startxfce4"'
+proot-distro login debian --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - "$username" -c "env DISPLAY=:0 startxfce4"'
 
 exit 0
