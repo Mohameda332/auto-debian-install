@@ -42,7 +42,7 @@ pd login debian --user "$username" -- env DISPLAY=:1.0 sudo whoami
 pd login debian --user "$username" -- env DISPLAY=:1.0 sudo apt install xfce4 -y
 
 # Install script for execute XFCE4 and customise it
-wget https://raw.githubusercontent.com/Mohameda332/auto-debian-install/refs/heads/main/startxfce4_debian.sh
+wget https://raw.githubusercontent.com/Mohameda332/auto-debian-install/refs/heads/main/startxfce4_desktop.sh
 chmod u+rw $PREFIX/data/data/com.termux/files/usr/bin/bash
 chmod +x startxfce4_debian.sh
 chmod u+rw $PREFIX/usr/etc/bash.bashrc
