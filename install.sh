@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 echo ""
-read -r -p "Please enter username for proot installation: " username </dev/tty
+read -r -p "Please enter a username for the proot installation: " username </dev/tty
 
 # Update and install packages
 pkg update -y
@@ -33,7 +33,7 @@ pd login debian --shared-tmp -- env DISPLAY=:1.0 apt upgrade -y
 pd login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo -y
 pd login debian --shared-tmp -- env DISPLAY=:1.0 apt install sudo nano adduser -y
 
-# Add User and install XFCE4
+# Add the User and install XFCE4
 pd login debian --shared-tmp -- env DISPLAY=:1.0 adduser "$username"
 chmod u+rw $PREFIX/var/lib/proot-distro/installed-rootfs/debian/etc/sudoers
 echo "$username ALL=(ALL:ALL) ALL" | tee -a $PREFIX/var/lib/proot-distro/installed-rootfs/debian/etc/sudoers > /dev/null
@@ -41,7 +41,7 @@ pd login debian --user "$username" -- env DISPLAY=:1.0 whoami
 pd login debian --user "$username" -- env DISPLAY=:1.0 sudo whoami 
 pd login debian --user "$username" -- env DISPLAY=:1.0 sudo apt install xfce4 -y
 
-# Install script for execute XFCE4 and customise it
+# Install script to execute XFCE4 and customise it
 wget https://raw.githubusercontent.com/Mohameda332/auto-debian-install/refs/heads/main/startxfce4_desktop.sh
 chmod u+rw $PREFIX/data/data/com.termux/files/usr/bin/bash
 chmod +x startxfce4_debian.sh
